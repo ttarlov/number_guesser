@@ -18,12 +18,35 @@
     </header>
   <section class='left-side'>
     <article class='set-range'>
+      <h3>Set Range</h3>
+      <input type="text" name="min-range" value="">Min Range</input>
+      <input type="text" name="min-range" value="">Max Range</input>
+      <button type="button" name="update">update</button>
     </article>
     <article class='challengers'>
-
+      <p>The Current Range is <span>1</span> to <span>100</span> </p>
+      <h3>Challenger 1</h3>
+        <input type="text" name="name" value="">Name</input>
+        <input type="number" name="guess" value="">Guess</input>
+      <h3>Challenger 2</h3>
+        <input type="text" name="name" value="">Name</input>
+        <input type="number" name="guess" value="">Guess</input>
+        <button type="button" name="submit-guess">submit guess</button>
+        <button type="button" name="reset-game">reset game</button>
+        <button type="button" name="clear-form">clear form</button>
     </article>
     <articles class='latest-guess'>
-
+      <h3>Latest Guess</h3>
+      <div class="challenger-1-results">
+        <h4>Chalenger 1 Name</h4>
+        <p>current guess</p>
+        <p>no guesses yet!</p>
+      <hr>
+      <div class="challenger-1-results">
+        <h4>Chalenger 2 Name</h4>
+        <p>current guess</p>
+        <p>no guesses yet!</p>
+      </div>
     </articles>
   </section>
   <section class='right-side'>
