@@ -18,19 +18,33 @@
     </header>
   <section class='left-side'>
     <article class='set-range'>
-      <h3>Set Range</h3>
-      <input type="text" name="min-range" value="">Min Range</input>
-      <input type="text" name="min-range" value="">Max Range</input>
-      <button class="button-disabled" type="button" name="update">update</button>
+      <div class="set-range-header">
+        <h3>Set Range</h3>
+      </div>
+      <section class="number-ranges-button">
+        <section class="min-range">
+          <label for="min-range">Min Range</label>
+          <input type="number" name="min-range" class="min-range-input"></input>
+        </section>
+        <section class="max-range">
+          <label for="max-range">Max Range</label>
+          <input type="number" name="max-range-input" class="max-range"></input>
+        </section>
+        <button class="button-disabled" type="button" name="update">update</button>
+      </section>
     </article>
     <article class='challengers'>
       <p>The Current Range is <span>1</span> to <span>100</span> </p>
       <h3>Challenger 1</h3>
-        <input type="text" name="name" value="">Name</input>
-        <input type="number" name="guess" value="">Guess</input>
+        <label for="name-1">Name</label>
+          <input type="text" name="name-1" value=""></input>
+        <label for="guess-1">Guess</label>
+          <input type="number" name="guess-1" value=""></input>
       <h3>Challenger 2</h3>
-        <input type="text" name="name" value="">Name</input>
-        <input type="number" name="guess" value="">Guess</input>
+        <label for="name-2">Name</label>
+          <input type="text" name="name-2" value=""></input>
+        <label for="guess-2">Guess</label>
+          <input type="number" name="guess-2" value=""></input>
         <button class="button-disabled" type="button" name="submit-guess">submit guess</button>
         <button class="button-disabled" type="button" name="reset-game">reset game</button>
         <button class="button-disabled" type="button" name="clear-form">clear form</button>

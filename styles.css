@@ -8,7 +8,7 @@ body
 {
   background-color: #D1D2D4;
   width: auto;
-  height:100vh;
+  height:1000px;
   margin: 0px;
   padding: 0px;
   font-weight: 300;
@@ -60,6 +60,12 @@ h2 {
   z-index: 1;
 }
 
+h3 {
+  width: 85%;
+  margin-left: 10px;
+  border: 1px solid green;
+}
+
 .white-line {
   display: inline;
   background-color: #DCDCDC;
@@ -77,34 +83,34 @@ h2 {
   justify-content: space-around;
   background-color: #f7f7f7;
   width: 50%;
-  height: 87vh;
+  height: 1100px;
 }
 .set-range {
+  display: inline-block;
+  /* justify-content: space-around; */
   background-color: #FFFFFF;
-  height: 15vh;
+  height: 150px;
   width: 93%;
-  border: solid 1px red;
+  /* border: solid 1px red; */
   margin-top: 1em;
 }
 
 .challengers {
   background-color: #FFFFFF;
-  height: 37vh;
+  height: 315px;
   width: 93%;
-  border: solid 1px red;
+  /* border: solid 1px red; */
 
 }
 .latest-guess {
   background-color: #FFFFFF;
-  height: 23vh;
+  height: 327px;
   width: 93%;
-  border: solid 1px red;
+  /* border: solid 1px red; */
   margin-bottom: 1em;
 
 }
-.right-side {
 
-}
 button {
   color: #ffffff;
   background-color: #d0d2d3;
@@ -124,4 +130,36 @@ button:hover {
 }
 .button-disabled {
   cursor: not-allowed;
+}
+
+input {
+  height: 30px;
+}
+
+.min-range,
+.max-range {
+  display: flex;
+  flex-direction: column;
+  /* border: solid 1px red; */
+}
+
+.min-range {
+  width: 55%;
+  margin-left: 10px;
+}
+
+.max-range {
+  width: 70%;
+  margin-left: 3%;
+}
+
+
+
+.number-ranges-button {
+  display: flex;
+  justify-content: space-between;
+
+}
+.set-range-header {
+  width: 100%;
 }
