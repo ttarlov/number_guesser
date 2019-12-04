@@ -15,7 +15,6 @@ body
   font-family: 'Open Sans', sans-serif;
 }
 
-
 header {
   height: 120px;
   width: 100%;
@@ -27,7 +26,6 @@ header {
   margin: 0px;
   position: relative;
 }
-
 
 h1 {
   margin-top: 4px;
@@ -62,8 +60,6 @@ h2 {
   z-index: 1;
 }
 
-
-
 .white-line {
   display: inline;
   background-color: #DCDCDC;
@@ -74,9 +70,6 @@ h2 {
   top: 90px;
 }
 
-
-
-
 .left-side {
   display: flex;
   align-items: center;
@@ -86,7 +79,6 @@ h2 {
   width: 50%;
   height: 87vh;
 }
-
 .set-range {
   background-color: #FFFFFF;
   height: 15vh;
@@ -112,4 +104,24 @@ h2 {
 }
 .right-side {
 
+}
+button {
+  color: #ffffff;
+  background-color: #d0d2d3;
+  border-radius: 30px;
+  height: 1.9em;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  font-size: 1em;
+  text-transform: uppercase;
+  text-align: center;
+  padding-left: .7em;
+  padding-right: .7em;
+  outline: 0;
+}
+button:hover {
+  background-color: #dd1792;
+}
+.button-disabled {
+  cursor: not-allowed;
 }
