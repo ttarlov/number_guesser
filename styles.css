@@ -8,13 +8,12 @@ body
 {
   background-color: #D1D2D4;
   width: auto;
-  height:100vh;
+  height:1000px;
   margin: 0px;
   padding: 0px;
   font-weight: 300;
   font-family: 'Open Sans', sans-serif;
 }
-
 
 header {
   height: 120px;
@@ -27,7 +26,6 @@ header {
   margin: 0px;
   position: relative;
 }
-
 
 h1 {
   margin-top: 4px;
@@ -63,6 +61,12 @@ h2 {
 }
 
 
+.set-range h3 {
+  border: 1px solid green;
+  margin-top: 14px;
+  margin-bottom: 5px;
+  width: 95%;
+}
 
 .white-line {
   display: inline;
@@ -74,9 +78,6 @@ h2 {
   top: 90px;
 }
 
-
-
-
 .left-side {
   display: flex;
   align-items: center;
@@ -84,32 +85,102 @@ h2 {
   justify-content: space-around;
   background-color: #f7f7f7;
   width: 50%;
-  height: 87vh;
+  height: 1100px;
 }
-
 .set-range {
+  /* border: solid 1px orange; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: #FFFFFF;
-  height: 15vh;
+  height: 150px;
   width: 93%;
-  border: solid 1px red;
-  margin-top: 1em;
 }
 
 .challengers {
   background-color: #FFFFFF;
-  height: 37vh;
+  height: 315px;
   width: 93%;
   border: solid 1px red;
 
 }
+
+.challengers h3 {
+  border: solid 1px red;
+}
+
+.challengers input {
+  border: solid 1px red;
+}
+
+.challengers label {
+  border: solid 1px red;
+}
+
 .latest-guess {
   background-color: #FFFFFF;
-  height: 23vh;
+  height: 327px;
   width: 93%;
-  border: solid 1px red;
+  /* border: solid 1px red; */
   margin-bottom: 1em;
 
 }
-.right-side {
 
+button {
+  color: #ffffff;
+  background-color: #d0d2d3;
+  border-radius: 30px;
+  height: 1.9em;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  font-size: 1em;
+  text-transform: uppercase;
+  text-align: center;
+  padding-left: .7em;
+  padding-right: .7em;
+  outline: 0;
+}
+button:hover {
+  background-color: #dd1792;
+}
+.button-disabled {
+  cursor: not-allowed;
+}
+
+input {
+  height: 30px;
+}
+
+.min-range,
+.max-range {
+/* border: solid 1px red; */
+  display: flex;
+  flex-direction: column;
+  width: 37%;
+}
+
+
+
+
+
+.number-ranges-button {
+  /* border: solid 1px red; */
+  display: flex;
+  justify-content: space-around;
+  height: 77px;
+  width: 100%;
+}
+
+.number-ranges-button input {
+  /* border: solid 1px red; */
+  width: 100%;
+
+}
+
+.number-ranges-button button {
+  margin-top: 15px;
+
+}
+.set-range-header {
+  width: 100%;
 }
