@@ -17,7 +17,7 @@
       </div>
     </header>
   <section class='left-side'>
-    <article class='set-range'>
+    <section class='set-range'>
       <h3>Set Range</h3>
       <section class="number-ranges-button">
         <section class="min-range">
@@ -30,8 +30,8 @@
         </section>
         <button class="button-disabled" type="button" name="update">update</button>
       </section>
-    </article>
-    <article class='challengers'>
+    </section>
+    <section class='challengers'>
       <p>The Current Range is <span>1</span> to <span>100</span> </p>
       <h3>Challenger 1</h3>
       <section class="challenge-1-name-guess">
@@ -57,22 +57,27 @@
         <button class="button-disabled" type="button" name="submit-guess">submit guess</button>
         <button class="button-disabled" type="button" name="reset-game">reset game</button>
         <button class="button-disabled" type="button" name="clear-form">clear form</button>
-      <section>
-    </article>
-    <articles class='latest-guess'>
-      <h3>Latest Guess</h3>
+      </section>
+    </section>
+    <section class='latest-guess'>
+      <div class="latest-guess-header">
+        <h3>Latest Guess</h3>
+      </div>
       <div class="challenger-1-results">
-        <h4>Chalenger 1 Name</h4>
+        <h4>Challenger 1 Name</h4>
         <p>current guess</p>
-        <p>no guesses yet!</p>
-      <hr>
-      <div class="challenger-1-results">
-        <h4>Chalenger 2 Name</h4>
-        <p>current guess</p>
+        <div class="challenger-1-guess">EMPTY SPACE</div>
         <p>no guesses yet!</p>
       </div>
-    </articles>
-  </section>
+      <hr class="horizontal-rule">
+      <div class="challenger-2-results">
+        <h4>Chalenger 2 Name</h4>
+        <p>current guess</p>
+        <div class="challenger-2-guess">EMPTY SPACE</div>
+        <p>no guesses yet!</p>
+      </div>
+    </section>
+  </section><!--LEFT SIDE CLOSES HERE!-->
   <section class='right-side'>
   </section>
   </main>
