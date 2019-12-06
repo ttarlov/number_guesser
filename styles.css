@@ -183,6 +183,11 @@ label {
   width: 100%;
 }
 
+.range-num {
+  font-weight: 700;
+  text-decoration: underline;
+  color: #404042;
+}
 
 .challengers h3 {
   /* border: solid 1px red; */
@@ -267,11 +272,29 @@ label {
 
 .challenger-1-results p {
   margin: 0px;
-  font-size: 2.5em;
+  font-size: 1.7em;
   color: #7e7e7e;
 }
 
-.challenger-1-guess {
+/* .challenger-2-results p {
+  margin: 0px;
+  font-size: 1.7em;
+  color: #7e7e7e;
+} */
+
+.challenger-2-results p:nth-last-of-type(2) {
+  font-size: 2em;
+  color: #7e7e7e;
+}
+
+.challenger-2-results p {
+  margin: 0px;
+  font-size: 1.7em;
+  color: #7e7e7e;
+}
+
+.challenger-1-guess,
+ .challenger-2-guess {
   font-size: 5.5em;
   font-weight: 700;
   color: #dd1792;
@@ -290,11 +313,11 @@ button {
   height: 1.9em;
   font-family: 'Open Sans', sans-serif;
   font-weight: 700;
-  font-size: 1.4em;
+  font-size: 1.2em;
   text-transform: uppercase;
   text-align: center;
-  padding-left: 1.8em;
-  padding-right: 1.8em;
+  padding-left: 1.4em;
+  padding-right: 1.4em;
   outline: 0;
 }
 
@@ -322,15 +345,19 @@ input {
 
 .number-ranges-button input {
   /* border: solid 1px red; */
-  width: 100%;
+  width: 85%;
   height: 53%;
 }
-
 
 .number-ranges-button button {
   margin-top: 43px;
   /* margin-right: 20px; */
-
+}
+.min-range {
+  margin-left: 20px;
+}
+.update-btn-container {
+  margin-right: 20px;
 }
 .set-range-header {
   width: 100%;
