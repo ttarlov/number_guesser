@@ -1,8 +1,15 @@
-/* @media only screen and (max-width: 600px) {
-  body {
-    display: block;
+@media only screen and (max-width: 900px) {
+  .left-side-right-side-containter {
+    display: flex;
+    flex-direction: column;
   }
-} */
+  .right-side {
+    flex: 1;
+  }
+  .left-side {
+    flex: 1;
+  }
+}
 
 * {
   box-sizing: border-box;
@@ -117,7 +124,6 @@ h4 {
   flex-direction: column;
   justify-content: space-around;
   background-color: #f7f7f7;
-  width: 50%;
   min-width: 469px;
   height: 1000px;
   border-right: solid 3px #ABABAB;
