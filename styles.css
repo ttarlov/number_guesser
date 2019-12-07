@@ -307,7 +307,7 @@ label {
 
 button {
   color: #ffffff;
-  background-color: #d0d2d3;
+  background-color: #7E7E7E;
   border-radius: 30px;
   height: 1.9em;
   font-family: 'Open Sans', sans-serif;
@@ -320,12 +320,14 @@ button {
   outline: 0;
 }
 
-button:hover {
+/* button:hover {
   background-color: #dd1792;
-}
+} */
 
-.button-disabled {
-  cursor: not-allowed;
+
+
+.button-active {
+  background-color: #7E7E7E;
 }
 
 input {
@@ -361,6 +363,11 @@ input {
 .set-range-header {
   width: 100%;
 }
+
+
+.button-disabled {
+  cursor: not-allowed;
+  background-color: #D1D2D4;
 
 .right-side {
   background-color: #D1D2D4;
