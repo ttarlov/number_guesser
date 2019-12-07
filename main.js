@@ -6,12 +6,15 @@ var ch1InputName = document.querySelector('.challenger1-name-js');
 var ch1InputGuess = document.querySelector('.challenger1-guess-js');
 var ch2InputName = document.querySelector('.challenger2-name-js');
 var ch2InputGuess = document.querySelector('.challenger2-guess-js');
+var ch1NameDisplayed = document.querySelector('.ch-1-name-displayed-js');
+var ch2NameDisplayed = document.querySelector('.ch-2-name-displayed-js');
 
 ch1InputName.addEventListener('input', validateUserInput);
 ch1InputGuess.addEventListener('input', validateUserInput);
 ch2InputName.addEventListener('input', validateUserInput);
 ch2InputGuess.addEventListener('input', validateUserInput);
 clearBtn.addEventListener('click', clearForm);
+submitBtn.addEventListener('click', executeSubmitButton);
 
 window.onload = disableButtons();
 // debugger;
@@ -22,7 +25,15 @@ function disableButtons() {
   submitBtn.classList.add('button-disabled');
   resetBtn.classList.add('button-disabled');
   clearBtn.classList.add('button-disabled');
+}
 
+function enableButtons() {
+  submitBtn.disabled = false;
+  resetBtn.disabled = false;
+  clearBtn.disabled = false;
+  submitBtn.classList.remove('button-disabled');
+  resetBtn.classList.remove('button-disabled');
+  clearBtn.classList.remove('button-disabled');
 }
 
 function validateUserInput() {
@@ -30,12 +41,7 @@ function validateUserInput() {
   if (ch1InputName.value.length > 0 && ch1InputGuess.value.length > 0 &&
    ch2InputName.value.length > 0 && ch2InputGuess.value.length > 0) {
     console.log('second condional');
-    submitBtn.disabled = false;
-    resetBtn.disabled = false;
-    clearBtn.disabled = false;
-    submitBtn.classList.remove('button-disabled');
-    resetBtn.classList.remove('button-disabled');
-    clearBtn.classList.remove('button-disabled');
+    enableButtons();
   } else if (ch1InputName.value.length > 0 || ch1InputGuess.value.length > 0 ||
   ch2InputName.value.length > 0 || ch2InputGuess.value.length > 0) {
     console.log('first conditional');
@@ -57,4 +63,8 @@ function clearForm() {
   ch2InputName.value = '';
   ch2InputGuess.value = '';
   disableButtons();
+}
+
+function executeSubmitButton() {
+  ch1NameDisplayed.innerText = ch1InputName.value;
 }
