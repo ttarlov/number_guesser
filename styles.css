@@ -1,14 +1,41 @@
 @media only screen and (max-width: 900px) {
+
+  .wrap {
+    height: 100%
+  }
+
   .left-side-right-side-containter {
     display: flex;
     flex-direction: column;
+    align-content: space-between;
   }
-  .right-side {
+
+.challengers-buttons {
+    display: flex;
+    /* align-content: space-between; */
+    flex-direction: column;
+  }
+
+.right-side {
     flex: 1;
+    min-width: 375px;
   }
-  .left-side {
+.left-side {
     flex: 1;
+    min-width: 375px;
+    border-right: 0;
   }
+
+.number-ranges-button {
+  display: flex;
+  flex-direction: column;
+  margin-left: 3%;
+}
+
+.min-range {
+  margin-left: 0px;
+}
+
 }
 
 * {
@@ -124,7 +151,6 @@ h4 {
   flex-direction: column;
   justify-content: space-around;
   background-color: #f7f7f7;
-  min-width: 469px;
   height: 1000px;
   border-right: solid 3px #ABABAB;
 }
