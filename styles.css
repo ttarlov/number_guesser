@@ -364,10 +364,10 @@ input {
   width: 100%;
 }
 
-
 .button-disabled {
   cursor: not-allowed;
   background-color: #D1D2D4;
+}
 
 .right-side {
   background-color: #D1D2D4;
