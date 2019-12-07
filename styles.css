@@ -123,12 +123,6 @@ h4 {
   border-right: solid 3px #ABABAB;
 }
 
-.right-side {
-  background-color: #D1D2D4;
-  border: 1px solid red;
-  flex: 1;
-}
-
 .set-range {
   /* background-color: orange; */
   flex-basis: 16%;
@@ -365,7 +359,17 @@ input {
   width: 100%;
 }
 
+
 .button-disabled {
   cursor: not-allowed;
   background-color: #D1D2D4;
+
+.right-side {
+  background-color: #D1D2D4;
+  border: 1px solid red;
+  flex: 1;
+}
+.winner-card-1 {
+  
+
 }
