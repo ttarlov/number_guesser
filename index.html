@@ -49,7 +49,7 @@
           <input class= "challenger1-guess-js" type="number" name="guess-1" value=""></input>
         </section>
       </section>
-      <h3>Challenger 2</h3>
+      <h3 class="current-range-challenger-2">Challenger 2</h3>
       <section class="challenger-name-guess">
         <section class="challengers-label-input challenger-name">
           <label for="name-2">Name</label>
@@ -89,10 +89,10 @@
   </section><!--LEFT SIDE CLOSES HERE-->
   <section class='right-side'>
     <div class="winner-card-1">
-      <p>challenger 1 name vs challenger 2 name</p>
+      <p><span class="winner-card-header">challenger 1 name</span><span class="vs">   vs   </span><span class="winner-card-header">challenger 2 name</span></p>
       <hr>
-      <p>challenger 2 name</p>
-      <p>winner</p>
+      <p class="winner-card-name">challenger 2 name</p>
+      <p class="winner-status">winner</p>
       <hr>
       <div class="winner-card-output-and-close-btn">
         <div class="number-of-guesses">
@@ -102,7 +102,7 @@
           <p>1 minute 35 seconds</p>
         </div>
         <div class="close-card-icon">
-          <p>close icon</p>
+          <img src="assets/x_icon.png" alt="x-icon">
         </div>
       </div>
     </div>
