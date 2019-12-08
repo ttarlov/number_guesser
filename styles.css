@@ -324,8 +324,13 @@ label {
   color: #7e7e7e;
 }
 
-.challenger-1-guess,
- .challenger-2-guess {
+.challenger-1-guess p {
+  font-size: 5.5em;
+  font-weight: 700;
+  color: #dd1792;
+}
+
+ .challenger-2-guess p {
   font-size: 5.5em;
   font-weight: 700;
   color: #dd1792;

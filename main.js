@@ -1,50 +1,77 @@
 var submitBtn = document.querySelector('.submit-btn-js');
 var resetBtn = document.querySelector('.reset-btn-js');
 var clearBtn = document.querySelector('.clear-btn-js');
-
 var ch1InputName = document.querySelector('.challenger1-name-js');
 var ch1InputGuess = document.querySelector('.challenger1-guess-js');
 var ch2InputName = document.querySelector('.challenger2-name-js');
 var ch2InputGuess = document.querySelector('.challenger2-guess-js');
+var ch1NameDisplayed = document.querySelector('.ch-1-name-displayed-js');
+var ch2NameDisplayed = document.querySelector('.ch-2-name-displayed-js');
+var ch1GuessDisplayed = document.querySelector('.ch-1-guess-displayed-js');
+var ch2GuessDisplayed = document.querySelector('.ch-2-guess-displayed-js');
 
 ch1InputName.addEventListener('input', validateUserInput);
 ch1InputGuess.addEventListener('input', validateUserInput);
 ch2InputName.addEventListener('input', validateUserInput);
 ch2InputGuess.addEventListener('input', validateUserInput);
+clearBtn.addEventListener('click', clearForm);
+submitBtn.addEventListener('click', executeSubmitButton);
 
 window.onload = disableButtons();
+
 // debugger;
 function disableButtons() {
   submitBtn.disabled = true;
   resetBtn.disabled = true;
   clearBtn.disabled = true;
+  submitBtn.classList.add('button-disabled');
+  resetBtn.classList.add('button-disabled');
+  clearBtn.classList.add('button-disabled');
+}
+
+function enableButtons() {
+  submitBtn.disabled = false;
+  resetBtn.disabled = false;
+  clearBtn.disabled = false;
+  submitBtn.classList.remove('button-disabled');
+  resetBtn.classList.remove('button-disabled');
+  clearBtn.classList.remove('button-disabled');
 }
 
 function validateUserInput() {
-  // debugger;
-  if (ch1InputName.value.length === 0 || ch1InputGuess.value.length < 0 ||
-  ch2InputName.value.length === 0 || ch2InputGuess.value.length < 0) {
+  console.log('Sanity check', ch1InputName.value, ch1InputGuess.value,
+  ch2InputName.value, ch2InputGuess.value);
+  if (ch1InputName.value.length > 0 && ch1InputGuess.value.length > 0 &&
+   ch2InputName.value.length > 0 && ch2InputGuess.value.length > 0) {
+    console.log('second condional');
+    enableButtons();
+  } else if (ch1InputName.value.length > 0 || ch1InputGuess.value.length > 0 ||
+  ch2InputName.value.length > 0 || ch2InputGuess.value.length > 0) {
+    console.log('first conditional');
     submitBtn.disabled = true;
     resetBtn.disabled = true;
-    clearBtn.disabled = true;
-  } else if (ch1InputName.value.length !== 0 && ch1InputGuess.value.length !== 0 &&
-   ch2InputName.value.length !== 0 && ch2InputGuess.value.length !== 0) {
-    submitBtn.disabled = false;
-    resetBtn.disabled = false;
     clearBtn.disabled = false;
-    submitBtn.classList.remove('button-disabled');
-    resetBtn.classList.remove('button-disabled');
     clearBtn.classList.remove('button-disabled');
-  }  else {
-    submitBtn.disabled = true;
-    resetBtn.disabled = true;
-    clearBtn.disabled = true;
-    submitBtn.classList.add('button-disabled');
-    resetBtn.classList.add('button-disabled');
-    clearBtn.classList.add('button-disabled');
+  } else {
+    console.log('else statement');
+    disableButtons();
   }
 }
 
+function clearForm() {
+  // debugger;
+  console.log('another sanity check', disableButtons());
+  ch1InputName.value = '';
+  ch1InputGuess.value = '';
+  ch2InputName.value = '';
+  ch2InputGuess.value = '';
+  disableButtons();
+}
 
-
-// submitBtn.addEventListener('click', )
+function executeSubmitButton() {
+  ch1NameDisplayed.innerText = ch1InputName.value;
+  ch2NameDisplayed.innerText = ch2InputName.value;
+  ch1GuessDisplayed.innerText = ch1InputGuess.value;
+  console.log('WORD UP', ch1GuessDisplayed.innerText);
+  ch2GuessDisplayed.innerText = ch2InputGuess.value;
+}
