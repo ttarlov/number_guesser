@@ -1,6 +1,8 @@
+var randomNum = Math.floor(Math.random() * 100);
 var submitBtn = document.querySelector('.submit-btn-js');
 var resetBtn = document.querySelector('.reset-btn-js');
 var clearBtn = document.querySelector('.clear-btn-js');
+var updateBtn = document.querySelector('.update-btn-js');
 var ch1InputName = document.querySelector('.challenger1-name-js');
 var ch1InputGuess = document.querySelector('.challenger1-guess-js');
 var ch2InputName = document.querySelector('.challenger2-name-js');
@@ -12,9 +14,11 @@ var ch2GuessDisplayed = document.querySelector('.ch-2-guess-displayed-js');
 var errorMessageCh1Name = document.querySelector('.error-message-ch1-name-js');
 var ch1GuessResult = document.querySelector('.ch1-guess-result');
 var ch2GuessResult = document.querySelector('.ch2-guess-result');
-// var minRange = document.querySelector('.min-range-input-js');
-// var maxRange = document.querySelector('.max-range-input-js');
-var randomNum = Math.floor(Math.random() * 100);
+var minRange = document.querySelector('.min-range-input-js');
+var maxRange = document.querySelector('.max-range-input-js');
+var minRangeDisplayed = document.querySelector('.range-num-min-js');
+var maxRangeDisplayed = document.querySelector('.range-num-max-js');
+var maxRangeErrorMsg = document.querySelector('.max-range-error-popup-js');
 // var ch1InputGuessInt = parseInt(ch1InputGuess.value);
 
 window.onload = disableButtons(); //DO NOT MOVE THIS!!!
@@ -26,6 +30,34 @@ ch2InputName.addEventListener('input', validateUserInput);
 ch2InputGuess.addEventListener('input', validateUserInput);
 clearBtn.addEventListener('click', clearForm);
 submitBtn.addEventListener('click', executeSubmitButton);
+updateBtn.addEventListener('click', updateRangeValues);
+minRange.addEventListener('keyup', removeDisabledClassUpdateBtn);
+
+function removeDisabledClassUpdateBtn() {
+  if (minRange.value.length > 0 || maxRange.value.length > 0) {
+    updateBtn.disabled = false;
+    updateBtn.classList.remove('button-disabled');
+  } else {
+    updateBtn.disabled = true;
+    updateBtn.classList.add('button-disabled');
+  }
+}
+
+function updateRangeValues() {
+  var minRangeInt = parseInt(minRange.value);
+  var maxRangeInt = parseInt(maxRange.value);
+  if (maxRangeInt < minRangeInt) {
+    maxRange.classList.add('max-range-input-error-js');
+    maxRangeErrorMsg.innerHTML = `<span class='max-range-error-popup-js'>
+    <img class='error-icon' src='assets/error-icon.svg' alt='error message'>
+    <span>Must be less than min</span></span>`;
+  } else if (maxRangeInt > minRangeInt) {
+    minRangeDisplayed.innerText = minRange.value;
+    maxRangeDisplayed.innerText = maxRange.value;
+    maxRange.classList.remove('max-range-input-error-js');
+    maxRangeErrorMsg.innerHTML = `<span></span>`;
+  }
+}
 
 function checkAlpha() {
   var letterNumber = /^[a-zA-Z]+/;
@@ -62,21 +94,21 @@ function enableButtons() {
 }
 
 function validateUserInput() {
-  console.log('Sanity check', ch1InputName.value, ch1InputGuess.value,
-  ch2InputName.value, ch2InputGuess.value);
+  // console.log('Sanity check', ch1InputName.value, ch1InputGuess.value,
+  // ch2InputName.value, ch2InputGuess.value);
   if (ch1InputName.value.length > 0 && ch1InputGuess.value.length > 0 &&
    ch2InputName.value.length > 0 && ch2InputGuess.value.length > 0) {
     console.log('second condional');
     enableButtons();
   } else if (ch1InputName.value.length > 0 || ch1InputGuess.value.length > 0 ||
   ch2InputName.value.length > 0 || ch2InputGuess.value.length > 0) {
-    console.log('first conditional');
+    // console.log('first conditional');
     submitBtn.disabled = true;
     resetBtn.disabled = true;
     clearBtn.disabled = false;
     clearBtn.classList.remove('button-disabled');
   } else {
-    console.log('else statement');
+    console.log('validate user input works correctly');
   }
 }
 
