@@ -1,4 +1,4 @@
-var randomNum = Math.floor(Math.random() * 100);
+var randomNum = randomNum || (Math.floor(Math.random() * 100));
 var submitBtn = document.querySelector('.submit-btn-js');
 var resetBtn = document.querySelector('.reset-btn-js');
 var clearBtn = document.querySelector('.clear-btn-js');
@@ -32,6 +32,9 @@ clearBtn.addEventListener('click', clearForm);
 submitBtn.addEventListener('click', executeSubmitButton);
 updateBtn.addEventListener('click', updateRangeValues);
 minRange.addEventListener('keyup', removeDisabledClassUpdateBtn);
+updateBtn.addEventListener('click', randomNumberMinVsMax);
+
+
 
 function removeDisabledClassUpdateBtn() {
   if (minRange.value.length > 0 || maxRange.value.length > 0) {
@@ -45,7 +48,9 @@ function removeDisabledClassUpdateBtn() {
 
 function updateRangeValues() {
   var minRangeInt = parseInt(minRange.value);
+  console.log('this is min number', minRangeInt);
   var maxRangeInt = parseInt(maxRange.value);
+  console.log('this is max number', maxRangeInt);
   if (maxRangeInt < minRangeInt) {
     maxRange.classList.add('max-range-input-error-js');
     maxRangeErrorMsg.innerHTML = `<span class='max-range-error-popup-js'>
@@ -57,6 +62,13 @@ function updateRangeValues() {
     maxRange.classList.remove('max-range-input-error-js');
     maxRangeErrorMsg.innerHTML = `<span></span>`;
   }
+
+  function randomNumberMinVsMax(minRangeInt, maxRangeInt) {
+    randomNum = (Math.floor(Math.random() * (maxRangeInt - minRangeInt + 1) + minRangeInt));
+    console.log('second random number', randomNum);
+  }
+
+  randomNumberMinVsMax(minRangeInt, maxRangeInt);
 }
 
 function checkAlpha() {
