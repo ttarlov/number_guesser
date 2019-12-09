@@ -9,6 +9,23 @@ var ch1NameDisplayed = document.querySelector('.ch-1-name-displayed-js');
 var ch2NameDisplayed = document.querySelector('.ch-2-name-displayed-js');
 var ch1GuessDisplayed = document.querySelector('.ch-1-guess-displayed-js');
 var ch2GuessDisplayed = document.querySelector('.ch-2-guess-displayed-js');
+var errorMessageCh1Name = document.querySelector('.error-message-ch1-name-js');
+
+ch1InputName.addEventListener('keyup', checkAlpha);
+
+function checkAlpha() {
+  var letterNumber = /^[a-zA-Z]+/;
+  // var noLetter = /^[0-9]+/;
+  if (!ch1InputName.value.match(letterNumber)) {
+    console.log('error message');
+    ch1InputName.classList.add('challenger1-name-error-js');
+    errorMessageCh1Name.innerHTML = `<span class='error-message-ch1-name-js'>
+    <img class='error-icon' src="assets/error-icon.svg" alt="error message">
+    <span>Enter a name</span></span>`;
+  } else if (ch1InputName.value.match(letterNumber)) {
+    ch1InputName.classList.remove('challenger1-name-error-js');
+  }
+}
 
 ch1InputName.addEventListener('input', validateUserInput);
 ch1InputGuess.addEventListener('input', validateUserInput);
@@ -16,6 +33,8 @@ ch2InputName.addEventListener('input', validateUserInput);
 ch2InputGuess.addEventListener('input', validateUserInput);
 clearBtn.addEventListener('click', clearForm);
 submitBtn.addEventListener('click', executeSubmitButton);
+
+
 
 window.onload = disableButtons();
 
@@ -54,8 +73,8 @@ function validateUserInput() {
     clearBtn.classList.remove('button-disabled');
   } else {
     console.log('else statement');
-    disableButtons();
   }
+
 }
 
 function clearForm() {
@@ -74,4 +93,21 @@ function executeSubmitButton() {
   ch1GuessDisplayed.innerText = ch1InputGuess.value;
   console.log('WORD UP', ch1GuessDisplayed.innerText);
   ch2GuessDisplayed.innerText = ch2InputGuess.value;
+  clearForm();
 }
+
+
+
+// function alphanumeric(inputtxt)
+// {
+//  var letterNumber = /^[0-9a-zA-Z]+$/;
+//  if((inputtxt.value.match(letterNumber))
+//   {
+//    return true;
+//   }
+// else
+//   {
+//    alert("message");
+//    return false;
+//   }
+//   }
