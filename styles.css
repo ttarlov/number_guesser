@@ -322,12 +322,16 @@ label {
   font-size: 5.5em;
   font-weight: 700;
   color: #dd1792;
+  width: 100%;
+  height: 120px;
 }
 
  .challenger-2-guess p {
   font-size: 5.5em;
   font-weight: 700;
   color: #dd1792;
+  width: 100%;
+  height: 120px;
 }
 
 .challenger-2-results {
