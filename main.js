@@ -18,6 +18,7 @@ var minRange = document.querySelector('.min-range-input-js');
 var maxRange = document.querySelector('.max-range-input-js');
 var minRangeDisplayed = document.querySelector('.range-num-min-js');
 var maxRangeDisplayed = document.querySelector('.range-num-max-js');
+var maxRangeErrorMsg = document.querySelector('.max-range-error-popup-js');
 // var ch1InputGuessInt = parseInt(ch1InputGuess.value);
 
 window.onload = disableButtons(); //DO NOT MOVE THIS!!!
@@ -43,11 +44,18 @@ function removeDisabledClassUpdateBtn() {
 }
 
 function updateRangeValues() {
-  if () {
-    //max is not greater than min display error message
-  } else if () {
+  var minRangeInt = parseInt(minRange.value);
+  var maxRangeInt = parseInt(maxRange.value);
+  if (maxRangeInt < minRangeInt) {
+    maxRange.classList.add('max-range-input-error-js');
+    maxRangeErrorMsg.innerHTML = `<span class='max-range-error-popup-js'>
+    <img class='error-icon' src='assets/error-icon.svg' alt='error message'>
+    <span>Must be less than min</span></span>`;
+  } else if (maxRangeInt > minRangeInt) {
     minRangeDisplayed.innerText = minRange.value;
     maxRangeDisplayed.innerText = maxRange.value;
+    maxRange.classList.remove('max-range-input-error-js');
+    maxRangeErrorMsg.innerHTML = `<span></span>`;
   }
 }
 

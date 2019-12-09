@@ -162,6 +162,7 @@ h4 {
   width: 93%;
   border: 2px solid #d0d2d3;
   margin-top: 8px;
+  position: relative;
 }
 
 label {
@@ -365,11 +366,22 @@ input {
   /* border: solid 1px red; */
 }
 
+.max-range-input-error-js {
+  border: 2px solid #dd1792;
+  margin: 0;
+}
+
+.max-range-error-popup-js {
+  width: 65%;
+  color: #dd1792;
+  position: absolute;
+  top: 80%;
+  right: 11%;
+}
+
 input:focus {
   outline: none;
 }
-
-
 
 .challenger1-name-error-js {
   border: 2px solid #dd1792;
@@ -389,8 +401,6 @@ input:focus {
   position: absolute;
   top: 44%;
   width: 61%
-
-
 }
 
 .number-ranges-button {
