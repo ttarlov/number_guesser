@@ -375,8 +375,8 @@ input {
   width: 65%;
   color: #dd1792;
   position: absolute;
-  top: 80%;
-  right: 11%;
+  top: 70px;
+  right: 63px;
 }
 
 input:focus {
