@@ -10,23 +10,16 @@ var ch2NameDisplayed = document.querySelector('.ch-2-name-displayed-js');
 var ch1GuessDisplayed = document.querySelector('.ch-1-guess-displayed-js');
 var ch2GuessDisplayed = document.querySelector('.ch-2-guess-displayed-js');
 var errorMessageCh1Name = document.querySelector('.error-message-ch1-name-js');
+var ch1GuessResult = document.querySelector('.ch1-guess-result');
+var ch2GuessResult = document.querySelector('.ch2-guess-result');
+// var minRange = document.querySelector('.min-range-input-js');
+// var maxRange = document.querySelector('.max-range-input-js');
+var randomNum = Math.floor(Math.random() * 100);
+// var ch1InputGuessInt = parseInt(ch1InputGuess.value);
+
+window.onload = disableButtons(); //DO NOT MOVE THIS!!!
 
 ch1InputName.addEventListener('keyup', checkAlpha);
-
-function checkAlpha() {
-  var letterNumber = /^[a-zA-Z]+/;
-  // var noLetter = /^[0-9]+/;
-  if (!ch1InputName.value.match(letterNumber)) {
-    console.log('error message');
-    ch1InputName.classList.add('challenger1-name-error-js');
-    errorMessageCh1Name.innerHTML = `<span class='error-message-ch1-name-js'>
-    <img class='error-icon' src="assets/error-icon.svg" alt="error message">
-    <span>Enter a name</span></span>`;
-  } else if (ch1InputName.value.match(letterNumber)) {
-    ch1InputName.classList.remove('challenger1-name-error-js');
-  }
-}
-
 ch1InputName.addEventListener('input', validateUserInput);
 ch1InputGuess.addEventListener('input', validateUserInput);
 ch2InputName.addEventListener('input', validateUserInput);
@@ -34,11 +27,22 @@ ch2InputGuess.addEventListener('input', validateUserInput);
 clearBtn.addEventListener('click', clearForm);
 submitBtn.addEventListener('click', executeSubmitButton);
 
+function checkAlpha() {
+  var letterNumber = /^[a-zA-Z]+/;
+  if (!ch1InputName.value.match(letterNumber)) {
+    console.log('error message');
+    ch1InputName.classList.add('challenger1-name-error-js');
+    errorMessageCh1Name.innerHTML = `<span class='error-message-ch1-name-js'>
+    <img class='error-icon' src='assets/error-icon.svg' alt='error message'>
+    <span>Enter a name</span></span>`;
+  } else if (ch1InputName.value.match(letterNumber)) {
+    ch1InputName.classList.remove('challenger1-name-error-js');
+    errorMessageCh1Name.innerHTML = `<span class='error-message-ch1-name-js'>
+    <img class='' src='' alt=''>
+    <span></span></span>`;
+  }
+}
 
-
-window.onload = disableButtons();
-
-// debugger;
 function disableButtons() {
   submitBtn.disabled = true;
   resetBtn.disabled = true;
@@ -74,7 +78,6 @@ function validateUserInput() {
   } else {
     console.log('else statement');
   }
-
 }
 
 function clearForm() {
@@ -93,21 +96,29 @@ function executeSubmitButton() {
   ch1GuessDisplayed.innerText = ch1InputGuess.value;
   console.log('WORD UP', ch1GuessDisplayed.innerText);
   ch2GuessDisplayed.innerText = ch2InputGuess.value;
+  compareCh1GuessToRange();
+  compareCh2GuessToRange();
   clearForm();
 }
 
+function compareCh1GuessToRange() {
+  var ch1InputGuessInt = parseInt(ch1InputGuess.value);
+  if (ch1InputGuessInt < randomNum) {
+    ch1GuessResult.innerText = 'that\'s too low!';
+  } else if (ch1InputGuessInt > randomNum) {
+    ch1GuessResult.innerText = 'that\'s too high!';
+  } else if (ch1InputGuessInt === randomNum) {
+    ch1GuessResult.innerText = 'BOOM!';
+  }
+}
 
-
-// function alphanumeric(inputtxt)
-// {
-//  var letterNumber = /^[0-9a-zA-Z]+$/;
-//  if((inputtxt.value.match(letterNumber))
-//   {
-//    return true;
-//   }
-// else
-//   {
-//    alert("message");
-//    return false;
-//   }
-//   }
+function compareCh2GuessToRange() {
+  var ch2InputGuessInt = parseInt(ch2InputGuess.value);
+  if (ch2InputGuessInt < randomNum) {
+    ch2GuessResult.innerText = 'that\'s too low!';
+  } else if (ch2InputGuessInt > randomNum) {
+    ch2GuessResult.innerText = 'that\'s too high!';
+  } else if (ch2InputGuessInt === randomNum) {
+    ch2GuessResult.innerText = 'BOOM!';
+  }
+}
