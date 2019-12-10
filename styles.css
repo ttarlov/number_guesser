@@ -442,14 +442,16 @@ input:focus {
   background-color: #D1D2D4;
   flex: 1;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .winner-card-1 {
   margin-top: 20px;
   background-color: #FFFFFF;
-  flex-basis: 93%;
-  height: 29%;
+  flex-basis: 30%;
+  width: 93%;
   text-align: center;
   border: solid 2px #ABABAB;
 }
