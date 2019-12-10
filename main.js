@@ -1,4 +1,5 @@
 var randomNum = randomNum || (Math.floor(Math.random() * 100));
+console.log(randomNum);
 var submitBtn = document.querySelector('.submit-btn-js');
 var resetBtn = document.querySelector('.reset-btn-js');
 var clearBtn = document.querySelector('.clear-btn-js');
@@ -20,6 +21,7 @@ var minRangeDisplayed = document.querySelector('.range-num-min-js');
 var maxRangeDisplayed = document.querySelector('.range-num-max-js');
 var maxRangeErrorMsg = document.querySelector('.max-range-error-popup-js');
 // var ch1InputGuessInt = parseInt(ch1InputGuess.value);
+var rightSideContainer = document.querySelector('.right-side-js');
 
 window.onload = disableButtons(); //DO NOT MOVE THIS!!!
 
@@ -153,6 +155,7 @@ function compareCh1GuessToRange() {
     ch1GuessResult.innerText = 'that\'s too high!';
   } else if (ch1InputGuessInt === randomNum) {
     ch1GuessResult.innerText = 'BOOM!';
+    displayWinnerCard();
   }
 }
 
@@ -164,5 +167,35 @@ function compareCh2GuessToRange() {
     ch2GuessResult.innerText = 'that\'s too high!';
   } else if (ch2InputGuessInt === randomNum) {
     ch2GuessResult.innerText = 'BOOM!';
+    displayWinnerCard();
   }
+}
+
+function displayWinnerCard() {
+  rightSideContainer.innerHTML = `<div class="winner-card-1">
+    <p class="winner-card-header-container">
+    <span class="winner-card-header ch1-name-inserted-winner-card-js">challenger 1 name</span>
+    <span class="vs">vs</span>
+    <span class="winner-card-header ch2-name-inserted-winner-card-js">challenger 2 name</span></p>
+    <hr>
+    <p class="winner-card-name winner-card-name-js">challenger 2 name</p>
+    <p class="winner-status">winner</p>
+    <hr>
+    <div class="winner-card-output-and-close-btn">
+      <div class="number-of-guesses">
+        <p>47 guesses</p>
+      </div>
+      <div class="time-elapsed">
+        <p>1 minute 35 seconds</p>
+      </div>
+      <div class="close-card-icon">
+        <img src="assets/x_icon.png" alt="x-icon">
+      </div>
+    </div>
+  </div>`;
+  var ch1WinnerNameInserted = document.querySelector('.ch1-name-inserted-winner-card-js');
+  ch1WinnerNameInserted.innerText = ch1NameDisplayed.innerText;
+  var ch2WinnerNameInserted = document.querySelector('.ch2-name-inserted-winner-card-js');
+  ch2WinnerNameInserted.innerText = ch2NameDisplayed.innerText;
+  console.log('whats your name', ch2NameDisplayed.innerText);
 }
