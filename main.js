@@ -20,7 +20,6 @@ var maxRange = document.querySelector('.max-range-input-js');
 var minRangeDisplayed = document.querySelector('.range-num-min-js');
 var maxRangeDisplayed = document.querySelector('.range-num-max-js');
 var maxRangeErrorMsg = document.querySelector('.max-range-error-popup-js');
-// var ch1InputGuessInt = parseInt(ch1InputGuess.value);
 var rightSideContainer = document.querySelector('.right-side-js');
 
 window.onload = disableButtons(); //DO NOT MOVE THIS!!!
@@ -35,8 +34,6 @@ submitBtn.addEventListener('click', executeSubmitButton);
 updateBtn.addEventListener('click', updateRangeValues);
 minRange.addEventListener('keyup', removeDisabledClassUpdateBtn);
 updateBtn.addEventListener('click', randomNumberMinVsMax);
-
-
 
 function removeDisabledClassUpdateBtn() {
   if (minRange.value.length > 0 || maxRange.value.length > 0) {
@@ -193,9 +190,20 @@ function displayWinnerCard() {
       </div>
     </div>
   </div>`;
+  updateWinnerCardInfo();
+}
+
+function updateWinnerCardInfo() {
+  var ch1InputGuessInt = parseInt(ch1InputGuess.value);
   var ch1WinnerNameInserted = document.querySelector('.ch1-name-inserted-winner-card-js');
   ch1WinnerNameInserted.innerText = ch1NameDisplayed.innerText;
   var ch2WinnerNameInserted = document.querySelector('.ch2-name-inserted-winner-card-js');
   ch2WinnerNameInserted.innerText = ch2NameDisplayed.innerText;
   console.log('whats your name', ch2NameDisplayed.innerText);
+  var challengerWinnerName = document.querySelector('.winner-card-name-js');
+  if (ch1InputGuessInt === randomNum) {
+    challengerWinnerName.innerText = ch1NameDisplayed.innerText;
+  } else {
+    challengerWinnerName.innerText = ch2NameDisplayed.innerText;
+  }
 }
