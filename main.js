@@ -1,4 +1,4 @@
-var randomNum = randomNum || (Math.floor(Math.random() * 100));
+var randomNum = randomNum || (Math.floor(Math.random() * 100) + 1);
 console.log('our first random number', randomNum);
 var submitBtn = document.querySelector('.submit-btn-js');
 var resetBtn = document.querySelector('.reset-btn-js');
@@ -21,6 +21,7 @@ var minRangeDisplayed = document.querySelector('.range-num-min-js');
 var maxRangeDisplayed = document.querySelector('.range-num-max-js');
 var maxRangeErrorMsg = document.querySelector('.max-range-error-popup-js');
 var rightSideContainer = document.querySelector('.right-side');
+var ch2GuessErrorPopup = document.querySelector('.ch2-guess-error-popup-js');
 var clicks = 0;
 
 window.onload = disableButtons(); //DO NOT MOVE THIS!!!
@@ -31,14 +32,11 @@ ch1InputGuess.addEventListener('input', validateUserInput);
 ch2InputName.addEventListener('input', validateUserInput);
 ch2InputGuess.addEventListener('input', validateUserInput);
 clearBtn.addEventListener('click', clearForm);
-submitBtn.addEventListener('click', executeSubmitButton);
+submitBtn.addEventListener('click', checkGuessesAgainstRange);
 updateBtn.addEventListener('click', updateRangeValues);
 maxRange.addEventListener('keyup', removeDisabledClassUpdateBtn);
 updateBtn.addEventListener('click', randomNumberMinVsMax);
 submitBtn.addEventListener('click', updateCounter);
-// rightSideContainer.addEventListener('click', function() {
-//   console.log('do the thing');
-// });
 
 function bringBackRandomNumber() {
   // debugger
@@ -150,6 +148,29 @@ function clearForm() {
   disableButtons();
 }
 
+function checkGuessesAgainstRange() {
+  var ch2InputGuessInt = parseInt(ch2InputGuess.value);
+  var ch1InputGuessInt = parseInt(ch1InputGuess.value);
+  if (ch1InputGuessInt < (parseInt(minRangeDisplayed.innerText)) ||
+    ch1InputGuessInt > (parseInt(maxRangeDisplayed.innerText))) {
+    ch1InputGuess.classList.add('ch2-guess-error-js');
+    ch2GuessErrorPopup.innerHTML = `<span class='ch2-guess-error-popup-js'>
+    <img class='error-icon' src='assets/error-icon.svg' alt='error message'>
+    <span>Guess must be within specified range</span></span>`;
+  } else if (ch2InputGuessInt < (parseInt(minRangeDisplayed.innerText)) ||
+  ch2InputGuessInt > (parseInt(maxRangeDisplayed.innerText))) {
+    ch2InputGuess.classList.add('ch2-guess-error-js');
+    ch2GuessErrorPopup.innerHTML = `<span class='ch2-guess-error-popup-js'>
+    <img class='error-icon' src='assets/error-icon.svg' alt='error message'>
+    <span>Guess must be within specified range</span></span>`;
+  } else {
+    ch1InputGuess.classList.remove('ch2-guess-error-js');
+    ch2InputGuess.classList.remove('ch2-guess-error-js');
+    ch2GuessErrorPopup.innerHTML = `<span></span>`;
+    executeSubmitButton();
+  }
+}
+
 function executeSubmitButton() {
   ch1NameDisplayed.innerText = ch1InputName.value;
   ch2NameDisplayed.innerText = ch2InputName.value;
@@ -204,7 +225,7 @@ function displayWinnerCard() {
   var guessCounter = document.querySelector('.guess-counter-js');
   // var clicks = clicks.toString();
   guessCounter.innerText = `${clicks} guesses`;
-  var winnerCardDiv = document.querySelector('.winner-card-1');
+  // var winnerCardDiv = document.querySelector('.winner-card-1');
   rightSideContainer.addEventListener('click', removeWinnerCard);
 }
 
@@ -228,17 +249,13 @@ function updateWinnerCardInfo() {
   }
 }
 
-// function removeWinnerCard(event) {
-//   console.log('im a winner');
-//   event.target.remove();
-//   console.log(event.target);
-// }
-
-
 function removeWinnerCard(event) {
-  console.log('clicks dis card, yo');
+  console.log('anything here', event.target.closest('.winner-card-1'));
+  // console.log('clicks dis card, yo');
   winnerCardDiv = document.querySelector('.winner-card-1');
   if (event.target.className == 'x-icon') {
-    winnerCardDiv.parentNode.removeChild(winnerCardDiv);
+    console.log('whats the target', event.target);
+    event.target.closest('.winner-card-1').remove();
+    // console.log('what is this', this);
   }
 }
