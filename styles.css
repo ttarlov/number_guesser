@@ -400,7 +400,27 @@ input:focus {
   font-size: 1.25em;
   position: absolute;
   top: 44%;
-  width: 61%
+  width: 61%;
+}
+
+.ch1-guess-error-js {
+  border: 2px solid #dd1792;
+  margin: 0;
+}
+
+.ch2-guess-error-js {
+  border: 2px solid #dd1792;
+  margin: 0;
+}
+
+.ch2-guess-error-popup-js {
+  color: #dd1792;
+  font-weight: 300;
+  font-size: 1.25em;
+  position: absolute;
+  top: 45%;
+  left: 37%;
+  width: 64%;
 }
 
 .number-ranges-button {
