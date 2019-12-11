@@ -149,20 +149,24 @@ function clearForm() {
 }
 
 function checkGuessesAgainstRange() {
+  let minRangeDisplayedInt = parseInt(minRangeDisplayed.innerText);
+  let maxRangeDisplayedInt = parseInt(maxRangeDisplayed.innerText);
+  console.log('TESTING THIS SHIT', minRangeDisplayedInt);
   var ch2InputGuessInt = parseInt(ch2InputGuess.value);
   var ch1InputGuessInt = parseInt(ch1InputGuess.value);
-  if (ch1InputGuessInt < (parseInt(minRangeDisplayed.innerText)) ||
-    ch1InputGuessInt > (parseInt(maxRangeDisplayed.innerText))) {
+  if (ch1InputGuessInt < minRangeDisplayedInt ||
+    ch1InputGuessInt > maxRangeDisplayedInt) {
     ch1InputGuess.classList.add('ch2-guess-error-js');
     ch2GuessErrorPopup.innerHTML = `<span class='ch2-guess-error-popup-js'>
     <img class='error-icon' src='assets/error-icon.svg' alt='error message'>
     <span>Guess must be within specified range</span></span>`;
-  } else if (ch2InputGuessInt < (parseInt(minRangeDisplayed.innerText)) ||
-  ch2InputGuessInt > (parseInt(maxRangeDisplayed.innerText))) {
+  } else if (ch2InputGuessInt < minRangeDisplayedInt ||
+  ch2InputGuessInt > maxRangeDisplayedInt) {
     ch2InputGuess.classList.add('ch2-guess-error-js');
     ch2GuessErrorPopup.innerHTML = `<span class='ch2-guess-error-popup-js'>
     <img class='error-icon' src='assets/error-icon.svg' alt='error message'>
     <span>Guess must be within specified range</span></span>`;
+    ch1InputGuess.classList.remove('ch2-guess-error-js');
   } else {
     ch1InputGuess.classList.remove('ch2-guess-error-js');
     ch2InputGuess.classList.remove('ch2-guess-error-js');
