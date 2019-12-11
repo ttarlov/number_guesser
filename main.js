@@ -20,8 +20,9 @@ var maxRange = document.querySelector('.max-range-input-js');
 var minRangeDisplayed = document.querySelector('.range-num-min-js');
 var maxRangeDisplayed = document.querySelector('.range-num-max-js');
 var maxRangeErrorMsg = document.querySelector('.max-range-error-popup-js');
-var rightSideContainer = document.querySelector('.right-side-js');
+var rightSideContainer = document.querySelector('.right-side');
 var clicks = 0;
+
 window.onload = disableButtons(); //DO NOT MOVE THIS!!!
 
 ch1InputName.addEventListener('keyup', checkAlpha);
@@ -32,9 +33,12 @@ ch2InputGuess.addEventListener('input', validateUserInput);
 clearBtn.addEventListener('click', clearForm);
 submitBtn.addEventListener('click', executeSubmitButton);
 updateBtn.addEventListener('click', updateRangeValues);
-minRange.addEventListener('keyup', removeDisabledClassUpdateBtn);
+maxRange.addEventListener('keyup', removeDisabledClassUpdateBtn);
 updateBtn.addEventListener('click', randomNumberMinVsMax);
 submitBtn.addEventListener('click', updateCounter);
+// rightSideContainer.addEventListener('click', function() {
+//   console.log('do the thing');
+// });
 
 function bringBackRandomNumber() {
   // debugger
@@ -43,12 +47,18 @@ function bringBackRandomNumber() {
 }
 
 function removeDisabledClassUpdateBtn() {
-  if (minRange.value.length > 0 || maxRange.value.length > 0) {
+  if (minRange.value > maxRange.value) {
+    updateBtn.disabled = true;
+    updateBtn.classList.add('button-disabled');
+    console.log('min range > max range');
+  } else if (minRange.value < maxRange.value) {
     updateBtn.disabled = false;
     updateBtn.classList.remove('button-disabled');
+    console.log('min range < max range');
   } else {
     updateBtn.disabled = true;
     updateBtn.classList.add('button-disabled');
+    console.log('everything else');
   }
 }
 
@@ -152,9 +162,9 @@ function executeSubmitButton() {
   }
 
   updateCounter();
-  compareCh1GuessToRange();
   compareCh2GuessToRange();
-  clearForm();
+  compareCh1GuessToRange();
+  console.log(rightSideContainer);
 }
 
 function compareCh1GuessToRange() {
@@ -167,6 +177,8 @@ function compareCh1GuessToRange() {
     ch1GuessResult.innerText = 'BOOM!';
     displayWinnerCard();
     bringBackRandomNumber();
+    clearForm();
+    clicks = 0;
   }
 }
 
@@ -180,17 +192,20 @@ function compareCh2GuessToRange() {
     ch2GuessResult.innerText = 'BOOM!';
     displayWinnerCard();
     bringBackRandomNumber();
+    clearForm();
+    clicks = 0;
   }
 }
 
 function displayWinnerCard() {
-  rightSideContainer.insertAdjacentHTML('afterbegin', '<div class="winner-card-1"><p class="winner-card-header-container"><span class="winner-card-header ch1-name-inserted-winner-card-js">challenger 1 name</span><span class="vs">vs</span><span class="winner-card-header ch2-name-inserted-winner-card-js">challenger 2 name</span></p><hr><p class="winner-card-name winner-card-name-js">challenger 2 name</p><p class="winner-status">winner</p><hr><div class="winner-card-output-and-close-btn"><div class="number-of-guesses"><p class="guess-counter-js">47 guesses</p></div><div class="time-elapsed"><p>1 minute 35 seconds</p></div><div class="close-card-icon"><img src="assets/x_icon.png" alt="x-icon"></div></div></div>');
+  rightSideContainer.insertAdjacentHTML('afterbegin', '<div class="winner-card-1"><p class="winner-card-header-container"><span class="winner-card-header ch1-name-inserted-winner-card-js">challenger 1 name</span><span class="vs">vs</span><span class="winner-card-header ch2-name-inserted-winner-card-js">challenger 2 name</span></p><hr><p class="winner-card-name winner-card-name-js">challenger 2 name</p><p class="winner-status">winner</p><hr><div class="winner-card-output-and-close-btn"><div class="number-of-guesses"><p class="guess-counter-js">47 guesses</p></div><div class="time-elapsed"><p>1 minute 35 seconds</p></div><div class="close-card-icon"><img src="assets/x_icon.png" class="x-icon" alt="x-icon"></div></div></div>');
   updateWinnerCardInfo();
-  console.log('updating card info', updateWinnerCardInfo());
-  console.log(clicks);
+  // console.log('updating card info', updateWinnerCardInfo());
   var guessCounter = document.querySelector('.guess-counter-js');
   // var clicks = clicks.toString();
   guessCounter.innerText = `${clicks} guesses`;
+  var winnerCardDiv = document.querySelector('.winner-card-1');
+  rightSideContainer.addEventListener('click', removeWinnerCard);
 }
 
 // function updateCounterDisplay() {
@@ -210,5 +225,20 @@ function updateWinnerCardInfo() {
     challengerWinnerName.innerText = ch1NameDisplayed.innerText;
   } else {
     challengerWinnerName.innerText = ch2NameDisplayed.innerText;
+  }
+}
+
+// function removeWinnerCard(event) {
+//   console.log('im a winner');
+//   event.target.remove();
+//   console.log(event.target);
+// }
+
+
+function removeWinnerCard(event) {
+  console.log('clicks dis card, yo');
+  winnerCardDiv = document.querySelector('.winner-card-1');
+  if (event.target.className == 'x-icon') {
+    winnerCardDiv.parentNode.removeChild(winnerCardDiv);
   }
 }
