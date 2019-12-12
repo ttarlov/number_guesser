@@ -1,104 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Number Guesser</title>
-  <link rel="stylesheet" type="text/css" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,700&display=swap" rel="stylesheet">
-</head>
-<body>
-  <main class='wrap'>
-    <header>
-      <h1> <span class='num'>number</span><span class='guess'>guesser</span></h1>
-      <h2>ultimate challenger edition</h2>
-      <div class='white-line'>
-      </div>
-    </header>
-<div class='left-side-right-side-containter'>
-  <section class='left-side'>
-    <section class='set-range'>
-      <div class='set-range-header'>
-        <h3>Set Range</h3>
-      </div>
-      <section class="number-ranges-button">
-        <section class="min-range">
-          <label for="min-range">Min Range</label>
-          <input type="number" name="min-range" class="min-range-input min-range-input-js"></input>
-        </section>
-        <section class="max-range">
-          <label for="max-range">Max Range</label>
-          <input type="number" name="max-range-input" class="max-range max-range-input-js"></input>
-          <span class="max-range-error-popup-js"></span>
-        </section>
-        <div class="update-btn-container">
-          <button class="button-disabled update-btn-js" type="button" name="update">update</button>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Number Guesser</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <main class="wrap">
+      <header>
+        <h1> <span class="num">number</span><span class="guess">guesser</span></h1>
+        <h2>ultimate challenger edition</h2>
+        <div class="white-line">
         </div>
-      </section>
-    </section>
-    <section class='challengers'>
-      <p>The Current Range is <span class="range-num range-num-min-js">1</span> to <span class="range-num range-num-max-js">100</span> </p>
-      <h3>Challenger 1</h3>
-      <section class="challenger-name-guess">
-        <section class="challengers-label-input challenger-name">
-          <label for="name-1">Name</label>
-          <input class="challenger1-name-js" type="text" name="name-1" value=""></input>
-          <span class='error-message-ch1-name-js'></span>
+      </header>
+      <div class="left-side-right-side-containter">
+        <section class="left-side">
+          <section class="set-range">
+            <div class="set-range-header">
+              <h3>Set Range</h3>
+            </div>
+            <section class="number-ranges-button">
+              <section class="min-range">
+                <label for="min-range">Min Range</label>
+                <input type="number" name="min-range" class="min-range-input
+                min-range-input-js"></input>
+              </section>
+              <section class="max-range">
+                <label for="max-range">Max Range</label>
+                <input type="number" name="max-range-input" class="max-range
+                max-range-input-js"></input>
+                <span class="max-range-error-popup-js"></span>
+              </section>
+              <div class="update-btn-container">
+                <button class="button-disabled update-btn-js" type="button"
+                name="update">update</button>
+              </div>
+            </section>
+          </section>
+          <section class="challengers">
+            <p>The Current Range is
+              <span class="range-num range-num-min-js">1</span> to
+              <span class="range-num range-num-max-js">100</span>
+            </p>
+            <h3>Challenger 1</h3>
+            <section class="challenger-name-guess">
+              <section class="challengers-label-input challenger-name">
+                <label for="name-1">Name</label>
+                <input class="challenger1-name-js" type="text" name="name-1"
+                value=""></input>
+                <span class="error-message-ch1-name-js"></span>
+              </section>
+              <section class="challengers-label-input challenger-guess">
+                <label for="guess-1">Guess</label>
+                <input class= "challenger1-guess-js" type="number" name="guess-1"
+                value=""></input>
+              </section>
+            </section>
+            <h3 class="current-range-challenger-2">Challenger 2</h3>
+            <section class="challenger-name-guess">
+              <section class="challengers-label-input challenger-name">
+                <label for="name-2">Name</label>
+                <input class="challenger2-name-js" type="text" name="name-1"
+                value=""></input>
+              </section>
+              <section class="challengers-label-input challenger-guess">
+                <label for="guess-2">Guess</label>
+                <input class="challenger2-guess-js" type="number" name="guess-1"
+                value=""></input>
+                <span class="ch2-guess-error-popup-js">
+                </span>
+              </section>
+            </section>
+            <section class= "challengers-buttons">
+              <button class="submit-btn-js button-disabled" type="button"
+              name="submit-guess">submit guess</button>
+              <button class="reset-btn-js button-disabled reset-btn"
+              type="button" name="reset-game">reset game</button>
+              <button class="clear-btn-js button-disabled clear-btn"
+              type="button" name="clear-form">clear form</button>
+            </section>
+          </section>
+          <section class="latest-guess">
+            <div class="latest-guess-header">
+              <h3>Latest Guess</h3>
+            </div>
+            <section class="challenger-one-two-container">
+              <div class="challenger-1-results">
+                <h4 class="ch-1-name-displayed-js">Challenger 1 Name</h4>
+                <p>current guess</p>
+                <div class="challenger-1-guess">
+                  <p class="ch-1-guess-displayed-js"></p>
+                </div>
+                <p class="ch1-guess-result">no guesses yet!</p>
+              </div>
+              <hr class="horizontal-rule">
+              <div class="challenger-2-results">
+                <h4 class="ch-2-name-displayed-js">Chalenger 2 Name</h4>
+                <p>current guess</p>
+                <div class="challenger-2-guess">
+                  <p class="ch-2-guess-displayed-js"></p>
+                </div>
+                <p class="ch2-guess-result">no guesses yet!</p>
+              </div>
+            </section>
+          </section>
         </section>
-        <section class="challengers-label-input challenger-guess">
-          <label for="guess-1">Guess</label>
-          <input class= "challenger1-guess-js" type="number" name="guess-1" value=""></input>
+        <section class="right-side">
         </section>
-      </section>
-      <h3 class="current-range-challenger-2">Challenger 2</h3>
-      <section class="challenger-name-guess">
-        <section class="challengers-label-input challenger-name">
-          <label for="name-2">Name</label>
-          <input class="challenger2-name-js" type="text" name="name-1" value=""></input>
-        </section>
-        <section class="challengers-label-input challenger-guess">
-          <label for="guess-2">Guess</label>
-          <input class="challenger2-guess-js" type="number" name="guess-1" value=""></input>
-          <span class='ch2-guess-error-popup-js'>
-          </span>
-        </section>
-      </section>
-      <section class= "challengers-buttons">
-        <button class="submit-btn-js button-disabled" type="button" name="submit-guess">submit guess</button>
-        <button class="reset-btn-js button-disabled reset-btn"  type="button" name="reset-game">reset game</button>
-        <button class="clear-btn-js button-disabled clear-btn"  type="button" name="clear-form">clear form</button>
-      </section>
-    </section>
-    <section class='latest-guess'>
-      <div class="latest-guess-header">
-        <h3>Latest Guess</h3>
       </div>
-      <section class="challenger-one-two-container">
-        <div class="challenger-1-results">
-          <h4 class="ch-1-name-displayed-js">Challenger 1 Name</h4>
-          <p>current guess</p>
-          <div class="challenger-1-guess">
-            <p class="ch-1-guess-displayed-js"></p>
-          </div>
-          <p class="ch1-guess-result">no guesses yet!</p>
-        </div>
-        <hr class="horizontal-rule">
-        <div class="challenger-2-results">
-          <h4 class="ch-2-name-displayed-js">Chalenger 2 Name</h4>
-          <p>current guess</p>
-          <div class="challenger-2-guess">
-            <p class="ch-2-guess-displayed-js"></p>
-          </div>
-          <p class="ch2-guess-result">no guesses yet!</p>
-        </div>
-      </section>
-    </section>
-  </section><!--LEFT SIDE CLOSES HERE-->
-  <section class='right-side'>
-  </section>
-</div><!--Closing of the right side / leftside container-->
-</main>
-</body>
+    </main>
+  </body>
 <script type='text/javascript' src="main.js"></script>
 </html>
