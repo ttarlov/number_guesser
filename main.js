@@ -135,7 +135,6 @@ function clearForm() {
 }
 
 function checkGuessesAgainstRange() {
-  console.log('Are we getting to this?')
   var minRangeDisplayedInt = parseInt(minRangeDisplayed.innerText);
   var maxRangeDisplayedInt = parseInt(maxRangeDisplayed.innerText);
   var ch2InputGuessInt = parseInt(ch2InputGuess.value);
