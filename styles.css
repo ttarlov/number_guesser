@@ -134,6 +134,11 @@ body .number-ranges-button button {
   margin-bottom: 20px;
 }
 
+body .ch2-guess-error-popup-js {
+  top: 41%;
+  left: 2%;
+  width: 96%;
+
 }
 
 * {

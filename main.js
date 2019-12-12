@@ -39,9 +39,9 @@ updateBtn.addEventListener('click', randomNumberMinVsMax);
 submitBtn.addEventListener('click', updateCounter);
 
 function bringBackRandomNumber() {
-  // debugger
   randomNum = (Math.floor(Math.random() * 100));
   console.log('second random number WTF', randomNum);
+
 }
 
 function removeDisabledClassUpdateBtn() {
@@ -62,8 +62,8 @@ function removeDisabledClassUpdateBtn() {
 
 function updateRangeValues() {
   var minRangeInt = parseInt(minRange.value);
-  console.log('this is min number', minRangeInt);
   var maxRangeInt = parseInt(maxRange.value);
+  console.log('this is min number', minRangeInt);
   console.log('this is max number', maxRangeInt);
   if (maxRangeInt < minRangeInt) {
     maxRange.classList.add('max-range-input-error-js');
