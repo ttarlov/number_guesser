@@ -34,12 +34,14 @@ clearBtn.addEventListener('click', clearForm);
 submitBtn.addEventListener('click', checkGuessesAgainstRange);
 updateBtn.addEventListener('click', updateRangeValues);
 maxRange.addEventListener('keyup', removeDisabledClassUpdateBtn);
-updateBtn.addEventListener('click', randomNumberMinVsMax);
-submitBtn.addEventListener('click', updateCounter);
-resetBtn.addEventListener('click', resetGame);
 
 function bringBackRandomNumber() {
   randomNum = (Math.floor(Math.random() * 100));
+}
+
+function resetGame() {
+  resetBtn.addEventListener('click', resetGame);
+  window.location.reload();
 }
 
 function removeDisabledClassUpdateBtn() {
@@ -56,6 +58,7 @@ function removeDisabledClassUpdateBtn() {
 }
 
 function updateRangeValues() {
+  updateBtn.addEventListener('click', randomNumberMinVsMax);
   var minRangeInt = parseInt(minRange.value);
   var maxRangeInt = parseInt(maxRange.value);
   if (maxRangeInt < minRangeInt) {
@@ -132,6 +135,7 @@ function clearForm() {
 }
 
 function checkGuessesAgainstRange() {
+  console.log('Are we getting to this?')
   var minRangeDisplayedInt = parseInt(minRangeDisplayed.innerText);
   var maxRangeDisplayedInt = parseInt(maxRangeDisplayed.innerText);
   var ch2InputGuessInt = parseInt(ch2InputGuess.value);
@@ -158,6 +162,7 @@ function checkGuessesAgainstRange() {
 }
 
 function executeSubmitButton() {
+  submitBtn.addEventListener('click', updateCounter);
   ch1NameDisplayed.innerText = ch1InputName.value;
   ch2NameDisplayed.innerText = ch2InputName.value;
   ch1GuessDisplayed.innerText = ch1InputGuess.value;
