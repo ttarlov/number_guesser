@@ -1,7 +1,7 @@
 @media only screen and (max-width: 900px) {
 
   .wrap {
-    height: 100%
+    height: 100%;
   }
 
   .left-side-right-side-containter {
@@ -9,6 +9,31 @@
     flex-direction: column;
     align-content: space-between;
   }
+
+  body .left-side {
+      flex: 1;
+      min-width: 375px;
+      border-right: 0;
+      height: 1800px;
+    }
+
+body header {
+  height: 104px;
+}
+
+h1 {
+  font-size: 1.1em;
+}
+
+ body h2 {
+  font-size: 1em;
+  margin-top: -4px;
+}
+
+body .white-line {
+  top: 78px;
+  min-width: 406px;
+}
 
 .challengers-buttons {
     display: flex;
@@ -21,12 +46,6 @@
     min-width: 375px;
   }
 
-.left-side {
-    flex: 1;
-    min-width: 375px;
-    border-right: 0;
-  }
-
 .number-ranges-button {
   display: flex;
   flex-direction: column;
@@ -35,6 +54,84 @@
 
 .min-range {
   margin-left: 0px;
+}
+
+body .latest-guess {
+  flex-basis: 28%;
+  margin-top: 3.3%;
+}
+
+body .challenger-one-two-container {
+  flex-direction: column;
+}
+
+body hr {
+  border: solid 1px #d1d2d3;
+  width: 80%;
+}
+
+body .challenger-1-guess p,
+body .challenger-2-guess p  {
+  font-size: 9em;
+}
+
+body .challenger-1-guess,
+body .challenger-2-guess {
+  height: 205px;
+}
+
+body .challenger-name-guess {
+  flex-direction: column;
+}
+
+body .challengers input {
+  width: 200%;
+}
+
+body .challenger-guess {
+  margin-top: 10px;
+}
+
+body .set-range {
+  margin-top: 3.3%;
+}
+
+body .challengers {
+  margin-top: 3.3%;
+}
+
+body .challengers-buttons {
+  margin-left: 3.3%;
+  margin-right: 3.3%;
+  width: 93%;
+}
+
+body .reset-btn,
+body .clear-btn {
+  margin-top: 21px;
+}
+
+body .error-message-ch1-name-js {
+  position: inherit;
+  width: 80%;
+
+}
+
+body .min-range {
+  margin-left: 0px;
+}
+
+body .max-range {
+  margin-top: 20px;
+}
+
+body .number-ranges-button input {
+  width: 97%;
+}
+
+body .number-ranges-button button {
+  margin-top: 17px;
+  margin-bottom: 20px;
 }
 
 }
@@ -433,7 +530,6 @@ input:focus {
 .number-ranges-button input {
   /* border: solid 1px red; */
   width: 85%;
-  height: 53%;
 }
 
 .number-ranges-button button {
