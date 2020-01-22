@@ -1,6 +1,6 @@
 ### NUMBER Guesser
 
-Number guesser was my first paired project. The goal of this project was to create simple 'game' that allows two players to guess a randomly generated number. This project was done in roughly 4 days .
+__Number guesser was my first paired project. The goal of this project was to create simple 'game' that allows two players to guess a randomly generated number. This project was done in roughly 4 days.__
 
 In the _number guesser_ there can only be one winner!
 
